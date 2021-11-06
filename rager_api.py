@@ -24,7 +24,7 @@ def start(update, context):
         if last_link != party_link and party_link!=None:
             context.bot.send_message(chat_id=-666138035, text=party_link)
             last_link = party_link
-        time.sleep(470)
+        time.sleep(460)
 def read(update, context):
     pass
 
