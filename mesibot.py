@@ -18,13 +18,14 @@ def start(update, context):
     while True:
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
-        print(time_string)
+        logging.warning(time_string)
         party_link = cl.user_info_by_username('ragerdizen').dict()["external_url"]
-        print(party_link)
+        logging.warning(party_link)
         if last_link != party_link and party_link!=None:
             context.bot.send_message(chat_id=-666138035, text=party_link)
             last_link = party_link
-        time.sleep(400)
+        time.sleep(360)
+        context.bot.send_message(chat_id=-642766618, text="I'm Alive")
 def read(update, context):
     pass
 
