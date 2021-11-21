@@ -15,16 +15,20 @@ def start(update, context):
     last_link = None
     cl = Client()
     cl.login("omerdor49", "49Omerdor49")
+    logging.warning("connected once")
     while True:
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
-        print(time_string)
-        party_link = cl.user_info_by_username('ragerdizen').dict()["external_url"]
-        print(party_link)
+        logging.warning(time_string)
+        party_link = cl.user_info_by_username('ragerdizen',use_cache=False).dict()["external_url"]
+        logging.warning(party_link)
         if last_link != party_link and party_link!=None:
             context.bot.send_message(chat_id=-666138035, text=party_link)
             last_link = party_link
-        time.sleep(400)
+        else:
+            context.bot.send_message(chat_id=-642766618, text="I'm Alive")
+        time.sleep(360)
+        
 def read(update, context):
     pass
 
@@ -46,4 +50,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
