@@ -20,15 +20,24 @@ def start(update, context):
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
         logging.warning(time_string)
+<<<<<<< HEAD
         party_link = cl.user_info_by_username('ragerdizen',use_cache=False).dict()["external_url"]
+=======
+        party_link = cl.user_info_by_username('ragerdizen').dict()["external_url"]
+>>>>>>> 3161d8bfa75bb0da5af01474a8886fb869912784
         logging.warning(party_link)
         if last_link != party_link and party_link!=None:
             context.bot.send_message(chat_id=-666138035, text=party_link)
             last_link = party_link
+<<<<<<< HEAD
         else:
             context.bot.send_message(chat_id=-642766618, text="I'm Alive")
         time.sleep(360)
         
+=======
+        time.sleep(360)
+        context.bot.send_message(chat_id=-642766618, text="I'm Alive")
+>>>>>>> 3161d8bfa75bb0da5af01474a8886fb869912784
 def read(update, context):
     pass
 
